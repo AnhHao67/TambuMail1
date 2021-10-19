@@ -10,7 +10,7 @@ using TambuMail.Data.EF;
 namespace TambuMail.Data.Migrations
 {
     [DbContext(typeof(TambuMailDbContext))]
-    [Migration("20211019081127_Initial")]
+    [Migration("20211019092420_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,23 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("AppConfig");
+
+                    b.HasData(
+                        new
+                        {
+                            Key = "HomeTitle",
+                            Value = "This is home page of TambuMail"
+                        },
+                        new
+                        {
+                            Key = "HomeKeyword",
+                            Value = "This is keyword of TambuMail"
+                        },
+                        new
+                        {
+                            Key = "HomeDescription",
+                            Value = "This is description of TambuMail"
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.Contact", b =>
@@ -117,8 +134,8 @@ namespace TambuMail.Data.Migrations
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("SoDienThoai")
-                        .HasColumnType("int");
+                    b.Property<string>("SoDienThoai")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SoThich")
                         .HasColumnType("nvarchar(1000)")
@@ -135,6 +152,18 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Mail");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DiaChi = "9/9/11 đường số 9, phường Bình Hưng Hoà, quận Bình Tân, thành phố Hồ Chí Minh ",
+                            HoTen = "Đinh Anh Hào",
+                            NgaySinh = new DateTime(2021, 10, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            SoDienThoai = "0771212342",
+                            SoThich = "Tiểu thuyết, game, đấu bài Yugioh",
+                            email = "dinhanhhao2033180037@gmail.com"
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.MailInPhanLoai", b =>
@@ -150,6 +179,13 @@ namespace TambuMail.Data.Migrations
                     b.HasIndex("MailId");
 
                     b.ToTable("ChienDichInCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            PhanLoaiId = 1,
+                            MailId = 1
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.NgonNgu", b =>
@@ -170,6 +206,20 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("NgonNgu");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "vi-VN",
+                            IsDefault = true,
+                            Name = "Tiếng Việt"
+                        },
+                        new
+                        {
+                            Id = "en-US",
+                            IsDefault = false,
+                            Name = "English"
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.PhanLoai", b =>
@@ -184,11 +234,11 @@ namespace TambuMail.Data.Migrations
                     b.Property<bool>("IsShowOnHome")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ParentId")
+                    b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SortOrder")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
 
                     b.Property<int>("status")
                         .ValueGeneratedOnAdd()
@@ -198,6 +248,22 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PhanLoai");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsShowOnHome = true,
+                            SortOrder = 1,
+                            status = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsShowOnHome = true,
+                            SortOrder = 2,
+                            status = 1
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.PhanLoaiTranslation", b =>
@@ -243,6 +309,28 @@ namespace TambuMail.Data.Migrations
                     b.HasIndex("PhanLoaiId");
 
                     b.ToTable("PhanLoaiTranslation");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NgonNguId = "vi-VN",
+                            PhanLoaiId = 1,
+                            SeoAlias = "sinh-nhat",
+                            SeoDescription = "mail Chúc mừng sinh nhật",
+                            SeoTitle = "mail Chúc mừng sinh nhật",
+                            Ten = "Chúc mừng sinh nhật"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            NgonNguId = "en-US",
+                            PhanLoaiId = 2,
+                            SeoAlias = "happy-birthday",
+                            SeoDescription = "Happy Birthday Mail",
+                            SeoTitle = "Happy Birthday Mail",
+                            Ten = "Happy Birthday"
+                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.Sending", b =>

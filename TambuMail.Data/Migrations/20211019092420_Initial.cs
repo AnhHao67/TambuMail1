@@ -45,7 +45,7 @@ namespace TambuMail.Data.Migrations
                     HoTen = table.Column<string>(maxLength: 200, nullable: false),
                     email = table.Column<string>(maxLength: 200, nullable: false),
                     NgaySinh = table.Column<DateTime>(nullable: false),
-                    SoDienThoai = table.Column<int>(nullable: true),
+                    SoDienThoai = table.Column<string>(nullable: true),
                     DiaChi = table.Column<string>(maxLength: 200, nullable: true),
                     SoThich = table.Column<string>(maxLength: 1000, nullable: true),
                     ThongTin = table.Column<string>(nullable: true)
@@ -75,8 +75,8 @@ namespace TambuMail.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IsShowOnHome = table.Column<bool>(nullable: false),
-                    SortOrder = table.Column<string>(nullable: true),
-                    ParentId = table.Column<int>(nullable: false),
+                    SortOrder = table.Column<int>(nullable: false),
+                    ParentId = table.Column<int>(nullable: true),
                     status = table.Column<int>(nullable: false, defaultValue: 1)
                 },
                 constraints: table =>
@@ -198,6 +198,54 @@ namespace TambuMail.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AppConfig",
+                columns: new[] { "Key", "Value" },
+                values: new object[,]
+                {
+                    { "HomeTitle", "This is home page of TambuMail" },
+                    { "HomeKeyword", "This is keyword of TambuMail" },
+                    { "HomeDescription", "This is description of TambuMail" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Mail",
+                columns: new[] { "Id", "DiaChi", "HoTen", "NgaySinh", "SoDienThoai", "SoThich", "ThongTin", "email" },
+                values: new object[] { 1, "9/9/11 đường số 9, phường Bình Hưng Hoà, quận Bình Tân, thành phố Hồ Chí Minh ", "Đinh Anh Hào", new DateTime(2021, 10, 19, 0, 0, 0, 0, DateTimeKind.Local), "0771212342", "Tiểu thuyết, game, đấu bài Yugioh", null, "dinhanhhao2033180037@gmail.com" });
+
+            migrationBuilder.InsertData(
+                table: "NgonNgu",
+                columns: new[] { "Id", "IsDefault", "Name" },
+                values: new object[,]
+                {
+                    { "vi-VN", true, "Tiếng Việt" },
+                    { "en-US", false, "English" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PhanLoai",
+                columns: new[] { "Id", "IsShowOnHome", "ParentId", "SortOrder", "status" },
+                values: new object[,]
+                {
+                    { 1, true, null, 1, 1 },
+                    { 2, true, null, 2, 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ChienDichInCategory",
+                columns: new[] { "PhanLoaiId", "MailId" },
+                values: new object[] { 1, 1 });
+
+            migrationBuilder.InsertData(
+                table: "PhanLoaiTranslation",
+                columns: new[] { "Id", "NgonNguId", "PhanLoaiId", "SeoAlias", "SeoDescription", "SeoTitle", "Ten" },
+                values: new object[] { 1, "vi-VN", 1, "sinh-nhat", "mail Chúc mừng sinh nhật", "mail Chúc mừng sinh nhật", "Chúc mừng sinh nhật" });
+
+            migrationBuilder.InsertData(
+                table: "PhanLoaiTranslation",
+                columns: new[] { "Id", "NgonNguId", "PhanLoaiId", "SeoAlias", "SeoDescription", "SeoTitle", "Ten" },
+                values: new object[] { 2, "en-US", 2, "happy-birthday", "Happy Birthday Mail", "Happy Birthday Mail", "Happy Birthday" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ChienDichInCategory_MailId",
