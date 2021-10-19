@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using TambuMail.Data.Configuration;
 using TambuMail.Data.Entities;
+using TambuMail.Data.Extension;
 
 namespace TambuMail.Data.EF
 {
@@ -24,6 +25,8 @@ namespace TambuMail.Data.EF
             modelBuilder.ApplyConfiguration(new PhanLoaiTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new SendingConfiguration());
             modelBuilder.ApplyConfiguration(new SendingDetailConfiguration());
+            //data Seeding
+            modelBuilder.Seed();
             // base.OnModelCreating(modelBuilder);
         }
         DbSet<Mail> Mails { get; set; }

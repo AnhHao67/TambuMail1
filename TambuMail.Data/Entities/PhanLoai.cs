@@ -9,8 +9,8 @@ namespace TambuMail.Data.Entities
     {
         public int Id { set; get; }
         public bool IsShowOnHome { set; get; }
-        public string SortOrder { set; get; }
-        public int ParentId { set; get; }
+        public int SortOrder { set; get; }
+        public int? ParentId { set; get; }
         public Status status { set; get; }
         public List<MailInPhanLoai> MailInPhanLoais { get; set; }
         public List<PhanLoaiTranslation> PhanLoaiTranslations { get; set; }
