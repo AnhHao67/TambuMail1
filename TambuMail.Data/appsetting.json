@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "TambuMailDb": "Server=(local)\\SQLEXPRESS;Database=TambuMail;Trusted_Connection=True;"
+  }
+ }
