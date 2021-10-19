@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TambuMail.Data.Entities
+{
+    public class Mail
+    {
+        public int Id { set; get; }
+        public string HoTen { set; get; }
+        public string email { set; get; }
+        public DateTime NgaySinh { set; get; }
+        public int? SoDienThoai { set; get; }
+        public string DiaChi { set; get; }
+        public string SoThich { set; get; }
+        public string ThongTin { set; get; }
+        public List<MailInPhanLoai> MailInPhanLoais { get; set; }
+        public List<SendingDetail> SendingDetails { get; set; }
+        public List<GioHang> GioHangs { get; set; }
+    }
+}
