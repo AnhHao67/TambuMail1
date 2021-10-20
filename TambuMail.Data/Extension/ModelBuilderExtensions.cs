@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -56,6 +57,39 @@ namespace TambuMail.Data.Extension
             modelBuilder.Entity<MailInPhanLoai>().HasData(
                new MailInPhanLoai() { MailId = 1, PhanLoaiId = 1 }
                );
+            // any guid
+            var roleId = new Guid("B15E325E-9FF8-4E2A-91CB-3DA62FB68FC6");
+            var adminId = new Guid("70551C02-FDF9-4D89-969D-4AE324F44A98");
+            modelBuilder.Entity<AppRole>().HasData(new AppRole
+            {
+                Id = roleId,
+                Name = "admin",
+                NormalizedName = "admin",
+                Description = "Administrator role"
+            });
+
+            var hasher = new PasswordHasher<AppUser>();
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = adminId,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "anhhao987676476@gmail.com",
+                NormalizedEmail = "anhhao987676476@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "T@mbu2021"),
+                SecurityStamp = string.Empty,
+                Ten = "Hao",
+                Ho = "Dinh",
+                NgaySinh = new DateTime(2000, 07, 06),
+                CongTy = "HUFI"
+            }) ;
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = roleId,
+                UserId = adminId
+            });
         }
     }
 }

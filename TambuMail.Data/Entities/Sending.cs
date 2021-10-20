@@ -11,6 +11,7 @@ namespace TambuMail.Data.Entities
         public DateTime NgayGui { set; get; }
         public Guid UserID { set; get; }
         public SendingStatus status { set; get; }
-        public List<SendingDetail> SendingDetails { get; set; } 
+        public List<SendingDetail> SendingDetails { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }
