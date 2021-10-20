@@ -16,6 +16,7 @@ namespace TambuMail.Data.Configuration
 
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.HasOne(x => x.Mail).WithMany(x => x.GioHangs).HasForeignKey(x => x.MailId);
+            builder.HasOne(x => x.AppUser).WithMany(x => x.GioHangs).HasForeignKey(x => x.UserId);
         }
     }
 }

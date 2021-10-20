@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TambuMail.Data.EF;
 
 namespace TambuMail.Data.Migrations
 {
     [DbContext(typeof(TambuMailDbContext))]
-    partial class TambuMailDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211020050555_AspNetCoreIndentityDatabase")]
+    partial class AspNetCoreIndentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,13 +94,6 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("70551c02-fdf9-4d89-969d-4ae324f44a98"),
-                            RoleId = new Guid("b15e325e-9ff8-4e2a-91cb-3da62fb68fc6")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -175,16 +170,6 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("b15e325e-9ff8-4e2a-91cb-3da62fb68fc6"),
-                            ConcurrencyStamp = "4e865a39-d49f-4dae-945e-645bfe4e6dde",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.AppUser", b =>
@@ -256,28 +241,6 @@ namespace TambuMail.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("70551c02-fdf9-4d89-969d-4ae324f44a98"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "9d9841b4-3abb-43d2-886c-fbfe03171ae8",
-                            CongTy = "HUFI",
-                            Email = "anhhao987676476@gmail.com",
-                            EmailConfirmed = true,
-                            Ho = "Dinh",
-                            LockoutEnabled = false,
-                            NgaySinh = new DateTime(2000, 7, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            NormalizedEmail = "anhhao987676476@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAnnmA3pNfWhdJNrZTkdNXTmBBRIeza5kg8LhrBd/LLYxJl4sKETz3tyx9BlqX5zaQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            Ten = "Hao",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("TambuMail.Data.Entities.Contact", b =>

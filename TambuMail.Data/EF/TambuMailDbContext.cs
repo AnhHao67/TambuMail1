@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +10,7 @@ using TambuMail.Data.Extension;
 
 namespace TambuMail.Data.EF
 {
-    public class TambuMailDbContext : DbContext
+    public class TambuMailDbContext : IdentityDbContext<AppUser,AppRole,Guid>
     {
         public TambuMailDbContext(DbContextOptions options) : base(options)
         {
@@ -25,6 +27,19 @@ namespace TambuMail.Data.EF
             modelBuilder.ApplyConfiguration(new PhanLoaiTranslationConfiguration());
             modelBuilder.ApplyConfiguration(new SendingConfiguration());
             modelBuilder.ApplyConfiguration(new SendingDetailConfiguration());
+
+
+            modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
+
+
+            modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
+            modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
+            modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
+
+            modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
+            modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
+
             //data Seeding
             modelBuilder.Seed();
             // base.OnModelCreating(modelBuilder);
