@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TambuMail.Data\TambuMail.Data.csproj" />
+    <ProjectReference Include="..\TambuMail.Utilities\TambuMail.Utilities.csproj" />
+  </ItemGroup>
+
 </Project>
