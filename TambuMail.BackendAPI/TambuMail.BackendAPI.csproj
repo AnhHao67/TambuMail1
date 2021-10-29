@@ -1,10 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TambuMail.ApplicationService\TambuMail.ApplicationService.csproj" />
     <ProjectReference Include="..\TambuMail.Data\TambuMail.Data.csproj" />
     <ProjectReference Include="..\TambuMail.Utilities\TambuMail.Utilities.csproj" />
     <ProjectReference Include="..\TambuMail.ViewModels\TambuMail.ViewModels.csproj" />

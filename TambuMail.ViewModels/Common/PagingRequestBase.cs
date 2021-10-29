@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TambuMail.ApplicationService.Dtos
+namespace TambuMail.ViewModels.Common
 {
     public class PagingRequestBase
     {

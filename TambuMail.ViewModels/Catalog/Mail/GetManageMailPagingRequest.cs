@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TambuMail.ApplicationService.Dtos;
+using TambuMail.ViewModels.Common;
 
-namespace TambuMail.ApplicationService.Catalog.Mails.Dtos.Manage
+namespace TambuMail.ViewModels.Catalog.Mail
 {
-    public class GetMailPagingRequest : PagingRequestBase
+    public class GetManageMailPagingRequest :PagingRequestBase
     {
         public string Keyword { get; set; }
         public int PhanLoaiId { get; set; }

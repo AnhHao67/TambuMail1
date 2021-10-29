@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TambuMail.ApplicationService.Catalog.Mails.Dtos;
-using TambuMail.ApplicationService.Catalog.Mails.Dtos.Public;
-using TambuMail.ApplicationService.Dtos;
+using System.Threading.Tasks;
+using TambuMail.ViewModels.Catalog.Mail;
+using TambuMail.ViewModels.Common;
 
 namespace TambuMail.ApplicationService.Catalog.Mails
 {
     public interface IPublicMailService //for customer
     {
-        PagedViewModel<MailViewModel> GetAllByCategoryId(GetMailPagingRequest request);
+        Task<PagedViewModel<MailViewModel>> GetAllByCategoryId(GetPublicMailPagingRequest request);
+        Task<List<MailViewModel>> GetAll();
     }
 }

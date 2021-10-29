@@ -14,7 +14,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.Data", "TambuMail
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.ApplicationService", "TambuMail.ApplicationService\TambuMail.ApplicationService.csproj", "{8D8861C1-D9DB-475B-AE7A-AE7A0CAB3264}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambuMail.Utilities", "TambuMail.Utilities\TambuMail.Utilities.csproj", "{4391285A-C17D-4E0C-BC50-4A73A9E8A939}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.Utilities", "TambuMail.Utilities\TambuMail.Utilities.csproj", "{4391285A-C17D-4E0C-BC50-4A73A9E8A939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambuMail.ViewModels", "TambuMail.ViewModels\TambuMail.ViewModels.csproj", "{9797ED19-1E7F-4278-95A9-95A9B80845F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambuMail.BackendAPI", "TambuMail.BackendAPI\TambuMail.BackendAPI.csproj", "{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +42,14 @@ Global
 		{4391285A-C17D-4E0C-BC50-4A73A9E8A939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4391285A-C17D-4E0C-BC50-4A73A9E8A939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4391285A-C17D-4E0C-BC50-4A73A9E8A939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9797ED19-1E7F-4278-95A9-95A9B80845F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9797ED19-1E7F-4278-95A9-95A9B80845F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9797ED19-1E7F-4278-95A9-95A9B80845F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9797ED19-1E7F-4278-95A9-95A9B80845F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

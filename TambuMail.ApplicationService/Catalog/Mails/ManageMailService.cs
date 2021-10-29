@@ -9,10 +9,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using TambuMail.ApplicationService.Catalog.Mails;
-using TambuMail.ApplicationService.Dtos;
-using TambuMail.ApplicationService.Catalog.Mails.Dtos.Manage;
-using TambuMail.ApplicationService.Catalog.Mails.Dtos;
 using TambuMail.Utilities.Exceptions;
+using TambuMail.ViewModels.Common;
+using TambuMail.ViewModels.Catalog.Mail;
 
 namespace TambuMail.ApplicationService.Catalog
 {
@@ -45,13 +44,7 @@ namespace TambuMail.ApplicationService.Catalog
             _context.Mails.Remove(mail);
             return await _context.SaveChangesAsync();
         }
-
-        public Task<List<MailViewModel>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<PagedViewModel<MailViewModel>> GetAllPaging(GetMailPagingRequest request)
+        public async Task<PagedViewModel<MailViewModel>> GetAllPaging(GetManageMailPagingRequest request)
         {
             // Select join
             var query = from m in _context.Mails
@@ -87,10 +80,15 @@ namespace TambuMail.ApplicationService.Catalog
             };
             return pageResult;
         }
-
         public async Task<int> Update(MailUpdatedRequest request)
         {
-            throw new NotImplementedException();
+            var mail = await _context.Mails.FindAsync(request.Id);
+            if (mail == null) throw new TambuException($"Cannot find  a mail with id: {request.Id}");
+            mail.HoTen = request.HoTen;
+            mail.SoDienThoai = request.SoDienThoai;
+            mail.SoThich = request.SoThich;
+            mail.DiaChi = request.DiaChi;
+            return await _context.SaveChangesAsync();
         }
     }
 }
