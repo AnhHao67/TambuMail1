@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,8 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TambuMail.ApplicationService.Catalog;
 using TambuMail.ApplicationService.Catalog.Mails;
+using TambuMail.ApplicationService.System.Users;
 using TambuMail.Data.EF;
+using TambuMail.Data.Entities;
 using TambuMail.Utilities.Constants;
 
 namespace TambuMail.BackendAPI
@@ -30,13 +34,22 @@ namespace TambuMail.BackendAPI
         {
             services.AddDbContext<TambuMailDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<TambuMailDbContext>()
+                .AddDefaultTokenProviders();
+
             //Declare DI
             services.AddTransient<IPublicMailService, PublicMailService>();
+            services.AddTransient<IManageMailService, ManageMailService>();
+            services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<IUserService, UserService>();
             services.AddControllersWithViews();
             //Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger TambuMail Demo", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger eShop Solution", Version = "v1" });
             });
         }
 
