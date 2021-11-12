@@ -49,7 +49,7 @@ namespace TambuMail.Data.Extension
            Id = 1,
            HoTen = "Đinh Anh Hào",
            email = "dinhanhhao2033180037@gmail.com",
-           NgaySinh = DateTime.Today,
+           NgaySinh = new DateTime(2000, 07, 06),
            DiaChi = "9/9/11 đường số 9, phường Bình Hưng Hoà, quận Bình Tân, thành phố Hồ Chí Minh ",
            SoDienThoai = "0771212342",
            SoThich = "Tiểu thuyết, game, đấu bài Yugioh",

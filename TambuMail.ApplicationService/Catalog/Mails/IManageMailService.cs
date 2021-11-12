@@ -9,6 +9,7 @@ namespace TambuMail.ApplicationService.Catalog.Mails
         Task<int> Create(MailCreatedRequest request);
         Task<int> Update(MailUpdatedRequest request);
         Task<int> Delete(int MailId);
+        Task<MailViewModel> GetById(int mailId);
         Task<PagedViewModel<MailViewModel>> GetAllPaging(GetManageMailPagingRequest request);
     }
 }

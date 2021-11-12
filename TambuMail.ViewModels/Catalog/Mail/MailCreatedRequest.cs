@@ -12,5 +12,6 @@ namespace TambuMail.ViewModels.Catalog.Mail
         public string SoDienThoai { set; get; }
         public string DiaChi { set; get; }
         public string SoThich { set; get; }
+        public string ThongTin { set; get; }
     }
 }

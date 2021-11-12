@@ -32,9 +32,11 @@ namespace TambuMail.ApplicationService.Catalog
                 SoDienThoai = request.SoDienThoai,
                 SoThich = request.SoThich,
                 DiaChi = request.DiaChi,
+                ThongTin = request.ThongTin,
             };
             _context.Mails.Add(mail);
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+            return mail.Id;
         }
 
         public async Task<int> Delete(int MailId)
@@ -80,6 +82,24 @@ namespace TambuMail.ApplicationService.Catalog
             };
             return pageResult;
         }
+
+        public async Task<MailViewModel> GetById(int mailId)
+        {
+            var mail = await _context.Mails.FindAsync(mailId);
+            var mailViewModel = new MailViewModel()
+            {
+                Id = mail.Id,
+                HoTen = mail.HoTen,
+                NgaySinh = mail.NgaySinh,
+                email = mail.email,
+                DiaChi = mail.DiaChi,
+                SoDienThoai = mail.SoDienThoai,
+                SoThich = mail.SoThich,
+                ThongTin = mail.ThongTin,
+            };
+            return mailViewModel;
+        }
+
         public async Task<int> Update(MailUpdatedRequest request)
         {
             var mail = await _context.Mails.FindAsync(request.Id);
@@ -88,6 +108,7 @@ namespace TambuMail.ApplicationService.Catalog
             mail.SoDienThoai = request.SoDienThoai;
             mail.SoThich = request.SoThich;
             mail.DiaChi = request.DiaChi;
+            mail.ThongTin = request.ThongTin;
             return await _context.SaveChangesAsync();
         }
     }

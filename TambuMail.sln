@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.WebApp", "TambuMail.WebApp\TambuMail.WebApp.csproj", "{7661F589-AB1A-48AD-983C-43CDD0C166A8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66B90BAA-F43C-49FB-9C99-114C04DD48CE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solution Items", "{66B90BAA-F43C-49FB-9C99-114C04DD48CE}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
@@ -16,9 +16,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.ApplicationServic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.Utilities", "TambuMail.Utilities\TambuMail.Utilities.csproj", "{4391285A-C17D-4E0C-BC50-4A73A9E8A939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambuMail.ViewModels", "TambuMail.ViewModels\TambuMail.ViewModels.csproj", "{9797ED19-1E7F-4278-95A9-95A9B80845F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.ViewModels", "TambuMail.ViewModels\TambuMail.ViewModels.csproj", "{9797ED19-1E7F-4278-95A9-95A9B80845F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TambuMail.BackendAPI", "TambuMail.BackendAPI\TambuMail.BackendAPI.csproj", "{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TambuMail.BackendAPI", "TambuMail.BackendAPI\TambuMail.BackendAPI.csproj", "{7668F2DB-DD31-454F-B40C-BEBEA8986AF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Infrastructure", "1. Infrastructure", "{9C406C90-97FF-4F52-885D-F366EDB40AE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Domain", "2.Domain", "{1A32D13D-922A-4124-BC6D-133C82066D2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Hosts", "3. Hosts", "{22BA9246-115F-4D08-A2BB-87CAB50AC05A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7661F589-AB1A-48AD-983C-43CDD0C166A8} = {22BA9246-115F-4D08-A2BB-87CAB50AC05A}
+		{BD8773AA-8893-4F13-A630-F1FCAC0B5FF0} = {1A32D13D-922A-4124-BC6D-133C82066D2E}
+		{8D8861C1-D9DB-475B-AE7A-AE7A0CAB3264} = {1A32D13D-922A-4124-BC6D-133C82066D2E}
+		{4391285A-C17D-4E0C-BC50-4A73A9E8A939} = {9C406C90-97FF-4F52-885D-F366EDB40AE7}
+		{9797ED19-1E7F-4278-95A9-95A9B80845F4} = {9C406C90-97FF-4F52-885D-F366EDB40AE7}
+		{7668F2DB-DD31-454F-B40C-BEBEA8986AF6} = {22BA9246-115F-4D08-A2BB-87CAB50AC05A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5792ABB0-AF00-44EA-BDB7-87497967B427}
