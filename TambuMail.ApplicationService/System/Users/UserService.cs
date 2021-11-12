@@ -31,7 +31,7 @@ namespace TambuMail.ApplicationService.System.Users
         public async Task<string> Authencate(LoginRequest request) 
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user == null) throw new TambuException("Cannot find username");
+            if (user == null) return null;
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
