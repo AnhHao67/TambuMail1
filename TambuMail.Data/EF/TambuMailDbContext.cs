@@ -44,16 +44,16 @@ namespace TambuMail.Data.EF
             modelBuilder.Seed();
             // base.OnModelCreating(modelBuilder);
         }
-        DbSet<Mail> Mails { get; set; }
-        DbSet<AppConfig>AppConfigs { get; set; }
-        DbSet<Contact> Contacts { get; set; }
-        DbSet<GioHang> GioHangs { get; set; }
-        DbSet<PhanLoai> PhanLoais { get; set; }
-        DbSet<Sending>Sendings { get; set; }
-        DbSet<SendingDetail> SendingDetails { get; set; }
-        DbSet<NgonNgu>NgonNgus { get; set; }
-        DbSet <PhanLoaiTranslation> PhanLoaiTranslations { get; set; }
-        DbSet<MailInPhanLoai> MailInPhanLoais { get; set; }
+        public DbSet<Mail> Mails { get; set; }
+        public DbSet<AppConfig>AppConfigs { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<GioHang> GioHangs { get; set; }
+        public DbSet<PhanLoai> PhanLoais { get; set; }
+        public DbSet<Sending>Sendings { get; set; }
+        public DbSet<SendingDetail> SendingDetails { get; set; }
+        public DbSet<NgonNgu>NgonNgus { get; set; }
+        public DbSet <PhanLoaiTranslation> PhanLoaiTranslations { get; set; }
+        public DbSet<MailInPhanLoai> MailInPhanLoais { get; set; }
 
     }
 }
